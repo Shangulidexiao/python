@@ -85,3 +85,22 @@ elif len(ex.split('**')) == 2:
 price  = 500 * 0.17
 
 # 5.8
+
+def square(width,height):
+	return width * height
+
+def cube(width,height,length):
+	return width * height * length
+
+from math import pi
+
+def circular(r):
+	return pi * r ** 2
+
+def ball(r):
+	return 4/3 * pi * r ** 3
+# 5.9
+ 17 + 32  = 49 两个十进制的加法
+ 017 + 32 = 15 + 32 = 45 017为８进制
+ 017 + 032 = 15 + 26 = 41 017 和032都为８进制
+ 56l + 78l = 124L  56 78后面都有ｌ代表长整型
