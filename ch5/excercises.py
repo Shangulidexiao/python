@@ -104,3 +104,38 @@ def ball(r):
  017 + 32 = 15 + 32 = 45 017为８进制
  017 + 032 = 15 + 26 = 41 017 和032都为８进制
  56l + 78l = 124L  56 78后面都有ｌ代表长整型
+
+# 5.15
+def bigDiv(num1,num2):
+	"两个数的最大公约数-中国的算法"
+	# 如果相等这个数就是最大公约数
+	if num1 == num2:
+		return num1
+
+	retval = 1;
+	while True:
+		if num1 % 2 != 0 or num2 % 2 != 0:
+			break
+		else:
+			retval *= 2
+			num1,num2 = num1/2,num2/2
+
+	while True:
+		if num1 > num2:
+			result = num1 - num2
+			if result == num2:
+				return num2 * retval
+			num1 = result
+		else:
+			result = num2 - num1
+			if result == num1:
+				return num1 * retval
+			num2 = result
+	return retval
+
+# 5.17
+import random
+N = random.randint(2,100)
+randlist = random.sample(xrange(2**31- 1) ,N)
+randlist.sort()
+print randlist
