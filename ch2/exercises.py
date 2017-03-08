@@ -98,3 +98,88 @@ while True:
 		break
 	else:
 		print 'you input is error'
+
+# 2.11
+
+def fiveNum():
+	listNum = []
+	while len(listNum) < 5:
+		listNum.append(int(raw_input('Please input a number:\n')))
+	return listNum
+
+def showAddNum(listNum):
+	listNum.append(sum(listNum))
+	print ' %d + %d + %d + %d + %d = %d' % tuple(listNum)
+
+def showArvNum(listNum):
+	listNum.append(float(sum(listNum))/len(listNum))
+	print ' %d  %d  %d  %d  %d average is : %f' % tuple(listNum)
+
+while True:
+	print '-'*30
+	chioce = raw_input('sum please input 1\naverage please input 2\nexit please input X\n');
+
+	if chioce.lower() == 'x':
+		break
+	elif chioce == '1':
+		showAddNum(fiveNum())
+	elif chioce == '2':
+		showArvNum(fiveNum())
+	else:
+		print 'Please input crueent item'
+
+# 2.12
+(a) ['__builtins__', '__doc__', '__name__', '__package__'] 
+	__builtins__ 的值为 <module '__builtin__' (built-in)>
+	__doc__ 为空
+	__name__ 为__main__
+	__packkage__ 为空
+	这是刚启动的解释器 你如果在里边定义写变量 函数 类的话这些都会出现在上述的列表中
+(b) 
+	不带参数时，返回当前范围内的变量、方法和定义的类型列表；带参数时，返回参数的属性、方法列表
+	不加括号会返回<built-in function dir>  意思dir是一个内建函数
+(c) <type 'builtin_function_or_method'> 
+
+# 2.14
+print -2 * (4 + 3) ** 2
+
+# 2.15
+# 从小到大排序
+a = int(raw_input('please input a number\n'))
+b = int(raw_input('please input a number\n'))
+c = int(raw_input('please input a number\n'))
+
+print '%d %d %d ' % (a,b,c)
+
+if a > b:
+	a,b = b,a
+if c < a:
+	a,b,c = c,a,b
+if c < b:
+	b,c = c,b
+
+print '%d %d %d ' % (a,b,c)
+
+# 从大到小排序
+a = int(raw_input('please input a number\n'))
+b = int(raw_input('please input a number\n'))
+c = int(raw_input('please input a number\n'))
+
+print '%d %d %d ' % (a,b,c)
+
+if a < b:
+	a,b = b,a
+if c > a:
+	a,b,c = c,a,b
+if c > b:
+	b,c = c,b
+
+print '%d %d %d ' % (a,b,c)
+
+# 2.15
+
+filename = raw_input('Enter file name: ')
+fobj = open(filename, 'r')
+for eachLine in fobj:
+	print eachLine,
+fobj.close()
