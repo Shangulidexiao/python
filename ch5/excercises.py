@@ -134,3 +134,38 @@ def toMin(hm):
 	if len(times) ==  2:
 		return int(times[0]) * 60 + int(times[1])
 # 5.14
+
+# 5.15
+def bigDiv(num1,num2):
+	"两个数的最大公约数-中国的算法"
+	# 如果相等这个数就是最大公约数
+	if num1 == num2:
+		return num1
+
+	retval = 1;
+	while True:
+		if num1 % 2 != 0 or num2 % 2 != 0:
+			break
+		else:
+			retval *= 2
+			num1,num2 = num1/2,num2/2
+
+	while True:
+		if num1 > num2:
+			result = num1 - num2
+			if result == num2:
+				return num2 * retval
+			num1 = result
+		else:
+			result = num2 - num1
+			if result == num1:
+				return num1 * retval
+			num2 = result
+	return retval
+
+# 5.17
+import random
+N = random.randint(2,100)
+randlist = random.sample(xrange(2**31- 1) ,N)
+randlist.sort()
+print randlist
