@@ -104,3 +104,33 @@ def ball(r):
  017 + 32 = 15 + 32 = 45 017为８进制
  017 + 032 = 15 + 26 = 41 017 和032都为８进制
  56l + 78l = 124L  56 78后面都有ｌ代表长整型
+
+ # 5.10
+
+ def fahrenheit(c):
+ 	F = c * 9.0/5.0 +32 
+ # 5.11
+ (a)
+for i in range(21):
+	if i % 2 == 0:
+		print i
+ (b)
+for i in range(21):
+ 	if i % 2 != 0:
+ 		print i
+(c) 一个数和2的余数为0
+(d) 
+def div():
+	num1 = int(raw_input('please input a number'))
+	num2 = int(raw_input('please input a number'))
+	if num1 % num2 == 0:
+		return True
+	else:
+		return False
+
+# 5.13
+def toMin(hm):
+	times = hm.split(':')
+	if len(times) ==  2:
+		return int(times[0]) * 60 + int(times[1])
+# 5.14
