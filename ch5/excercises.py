@@ -134,6 +134,7 @@ def toMin(hm):
 	if len(times) ==  2:
 		return int(times[0]) * 60 + int(times[1])
 # 5.14
+公式：本金*（1+日利率）** 天数
 
 # 5.15
 def bigDiv(num1,num2):
