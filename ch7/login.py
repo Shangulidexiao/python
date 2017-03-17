@@ -1,0 +1,26 @@
+#!/usr/bin/env python
+# -*- coding=utf-8 -*-
+
+"""登录的GUI"""
+
+import Tkinter
+
+def resize(ev=None):
+	label.config(font='Helvetica -%d bold' % scale.get())
+# 创建顶级窗口
+top 	= Tkinter.Tk()
+top.geometry('250x150')
+
+label 	= Tkinter.Label(top,text='hello world', font='Helvetica -12 bold')
+label.pack(fill=Tkinter.Y,expand=1)
+
+scale = Tkinter.Scale(top, from_ = 10, to = 40, orient=Tkinter.HORIZONTAL, command=resize)
+scale.set(12)
+scale.pack(fill=Tkinter.X,expand=1)
+
+quit = Tkinter.Button(top,text='退出', command=top.quit, activeforeground='white', activebackground='red')
+quit.pack(fill=Tkinter.X,expand=1)
+
+Tkinter.mainloop()
+
+
