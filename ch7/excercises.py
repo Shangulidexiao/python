@@ -114,4 +114,26 @@ def rot13n(str1):
 			newstr += chr(rindex)
 	return newstr
 
+# 7.11 
+可以hash的才能做字典的键 
+元组可以做字典的键 列表不可以 
+不可变集合可以做字典的键，可变集合不可以
+
+# 7.12
+由一个或多个确定的元素所构成的整体叫做集合
+
+# 7.13
+def randset(num):
+    from random import randint
+    randset = set()
+    for i in range(num):
+        randset.add(randint(0,num-1))
+    return randset
+
+A = randset(10)
+B = randset(10)
+
+A | B 
+A & B
+# 7.14
 
