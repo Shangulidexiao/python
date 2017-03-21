@@ -41,10 +41,40 @@ def staff():
 	print '输入q退出'
 	staff = {}
 	while True:
-		name = raw_input('Please input name:')
+		name = raw_input('Please input name or q quit:')
 		if name == 'q':
 			break
 		code = raw_input('Please input code:')
+		if staff.has_key(code):
+			print '编码已存在，本次录入失败'
 		staff[code] = name
-	return staff
+	codes = staff.keys()
+	codes.sort()
+	for code in codes:
+		print code , staff[code]
+# 这道题没有写完
+
+# 7.9
+(a) 
+def tr(srcstr,dststr,string,ul=True):
+	srcLen = len(string),len(srcstr)
+	strLen = len(string) - srcLen
+	newstr = ''
+	i = 0
+	if ul:
+		if srcstr not in string:
+			return string
+		while i < strLen:
+			if srcstr == string[i:i+srcLen]
+			newstr = string[:i] + dststr + string[:]
+			i += srcLen
+	else:
+		src,dst,str1 = srcstr.lower(),dststr.lower(),string.lower
+		if src not in str1:
+			return string
+		while i < strLen:
+			if srcstr == string[i:i+srcLen]
+			newstr = string[:i] + dststr + string[:]
+			i += srcLen		
+	
 
