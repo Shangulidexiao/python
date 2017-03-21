@@ -78,3 +78,40 @@ def tr(srcstr,dststr,string,ul=True):
 			i += srcLen		
 	
 
+
+# 7.10
+def rot13(str1):
+	from string import letters
+	newstr = ''
+	strlen = len(str1)
+	for s in xrange(strlen):
+		if str1[s] not in letters:
+			newstr += str1[s]
+		else:
+			rindex = ord(str1[s]) + 13
+			if str1[s].islower() and rindex > 122:
+				rindex = 97 + rindex - 123
+			elif str1[s].isupper() and rindex > 90:
+					rindex = 65 + rindex - 91
+			newstr += chr(rindex)
+	return newstr
+
+def rot13n(str1):
+	from string import letters
+	newstr = ''
+	strlen = len(str1)
+	for s in xrange(strlen):
+		if str1[s] not in letters:
+			newstr += str1[s]
+		else:
+			rindex = ord(str1[s]) - 13
+			print rindex
+			if str1[s].islower() and rindex < 97:
+				rindex = 123 - 97 + rindex
+			elif str1[s].isupper() and rindex < 65:
+					rindex = 91 - 65 + rindex
+					print rindex
+			newstr += chr(rindex)
+	return newstr
+
+
