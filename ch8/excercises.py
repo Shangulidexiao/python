@@ -112,6 +112,34 @@ def addName():
 	return names 
 
 # 8.12
-
+start = int(raw_input('please input a start number'))
+end   = int(raw_input('please input a end number'))
+th = 'DEC\tBIN\tOCR\tHEX\t '
+td = '%s\t%s\t%s\t%s\t'
+if end > start and end < 127:
+	th += 'ASCII'
+	td += '%s'
+numlist = range(start,end+1)
+print th
+for x in numlist:
+	print '%s\t%s\t%0\t%x\t%s' % (x,bin(x),oct(x),hex(x),chr(x)) 
 # 8.13
-alist = ['xx' ]
+def test():
+	import time
+	alist = ['xx' for i in range(100000)]
+	ystart = time.time()
+	string = ''
+	for s in alist:
+		string += s
+	print time.time() - ystart
+def test():
+	import time
+	alist = ['xx' for i in range(100000)]
+	ystart = time.time()
+	string = ''
+	alistnum = range(len(alist))
+	for s in alistnum:
+		string += alist[s]
+	print time.time() - ystart
+
+使用的内存增加了，然后序列的操作也增加了
