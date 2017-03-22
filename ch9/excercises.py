@@ -113,6 +113,8 @@ import sys
 print sys.argv
 
 # 9.14
+
+# 9.15
 def copy(file1,file2):
 	fobj = safe_open(file1)
 	fobj1 = safe_open(file2,'w')
@@ -120,6 +122,15 @@ def copy(file1,file2):
 		return False
 	for line in fobj:
 		fobj1.write(line)
-
 	fobj.close()
 	fobj1.close()
+
+# 9.16
+# 首先遍历每个文件 然后每行要拆分成n个80个字符
+def line80(str1):
+	newstr,srcstr = '',str1
+	if len(str1) <= 80:
+		return str1
+	while len(srcstr) > 80:
+
+
