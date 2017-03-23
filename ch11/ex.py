@@ -30,12 +30,12 @@ def doprob():
 def main():
 	 while True:
 	 	doprob()
-		 try:
-		 	opt = raw_input('Again?[y]'.lower())
-		 	if opt and opt[0] == 'n':
-		 		break
-		 except (KeyboardInterrupt,EOFError):
-		 	break
+		try:
+			opt = raw_input('Again?[y]'.lower())
+			if opt and opt[0] == 'n':
+				break
+		except (KeyboardInterrupt,EOFError):
+			break
 
 if __name__ == '__main__':
 	main()
