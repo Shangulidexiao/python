@@ -7,7 +7,7 @@ from time import ctime,sleep
 
 def tsfunc(func):
 	def wrappedFunc():
-		print '[%s] %s() called' % (ctime(),func.name)
+		print '[%s] %s() called' % (ctime(),func.__name__)
 		return func
 	return wrappedFunc
 
