@@ -92,3 +92,61 @@ def leapYear(year):
 	return False
 filer(leapYear,range(2000,2017))
 [year for year in range(2000,2017) if year % 4 == 0 and year % 100 != 0]
+
+# 11.9
+def average(alist):
+	return reduce(lambda x,y:x+y,alist)/len(alist)
+
+# 11.10
+去掉.的所有文件
+
+# 11.11
+def file_strip(filename,newfile = None):
+	if newfile == None:
+		try:
+			fobj = open(filename,'r')
+		except IOError,e:
+			return '要读取的文件不存在'
+		else:
+			flist = map(lambda x:x.strip()+'\n',fobj.readlines())
+			fobj.close()
+			try:
+				wobj  = open(filename,'w')
+			except IOError,e:
+				return '写入文件失败，请检查权限'
+			else:
+				wobj.writelines(flist)
+				wobj.close()
+	else:
+		try:
+			fobj = open(filename,'r')
+		except IOError,e:
+			return '要读取的文件不存在'
+		else:
+			flist = map(lambda x:x.strip()+'\n',fobj.readlines())
+			fobj.close()
+			try:
+				wobj  = open(newfile,'w')
+			except IOError,e:
+				return '写入文件失败，请检查权限'
+			else:
+				wobj.writelines(flist)
+				wobj.close()
+
+# 11.12
+
+# 11.13
+(a)
+def mult(x,y):
+	return x * y
+(b)
+def nmult(n):
+	"计算阶乘"
+	return reduce(mult,range(1,n+1))
+(c)
+reduce(lambda x,y:x*y,range(1,n+1))
+(d)
+
+# 11.14
+
+
