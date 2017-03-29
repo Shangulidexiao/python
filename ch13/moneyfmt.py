@@ -2,16 +2,45 @@
 # -*-coding:utf-8-*-
 
 class MoneyFmt(object):
-	def __init__(self,value=0.0):#constructor
-		self.value = value
+	def __init__(self,value=0.0,ccy='￥',mark=False):#constructor
+		self.__value = value
+		self.__ccy 	 = ccy
+
 	def update(self,value=None):
 		if value not None:
-			self.value = value
+			self.__value = value
+
 	def __repr__(self):
-		return `self.value`
+		return `self.__value`
+
 	def __str__(self):
-		return '$%.2f' % self.value
+		return self.__dollarize()
+
 	def __nonzero__(self):
-		return int(self.value)
-	def dollarize(money):
-		if isinstance(money,float):
+		return bool(self.__value)
+
+	def __dollarize(self):
+		if isinstance(self.__value,(float,int)):
+			fu = ''
+			if self.__value < 0:
+				fu = '-'
+			f = str(abs(self.__value)).split('.')
+			try:
+				return fu + self.__ccy + self.__addcomma(f[0]) + '.' + f[1][:2]
+			except IndexError:
+				return fu + self.__ccy + self.__addcomma(f[0]) + '.00'
+		else:
+			raise TypeError('please input a float')
+
+	def __addcomma(self,numStr):
+		if int(numStr) < 999:
+			return numStr
+		length = len(numStr) % 3
+		retval = numStr[:length]+','
+		newstr = numStr[length:]
+		for i,s in enumerate(newstr):
+			if (i+1) % 3 == 0:
+				retval += s+',' 
+			else:
+				retval += s
+		return retval.strip(',')

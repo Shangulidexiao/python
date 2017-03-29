@@ -11,9 +11,28 @@
 
 # 13.3
 def dollarize(money):
-	if isinstance(money,float):
-		fu = ''
+	if isinstance(money,(float,int)):
+		fu,m = '','$'
 		if money < 0:
 			fu = '-'
-		f = str(round(abs(money),2)).split('.')
-
+		f = str(abs(money)).split('.')
+		try:
+			return fu + m + addcomma(f[0]) + '.' + f[1][:2]
+		except IndexError:
+			return fu + m + addcomma(f[0]) + '.00'
+	else:
+		raise TypeError('please input a float')
+	
+ 
+def addcomma(numStr):
+	if int(numStr) < 999:
+		return numStr
+	length = len(numStr) % 3
+	retval = numStr[:length]+','
+	newstr = numStr[length:]
+	for i,s in enumerate(newstr):
+		if (i+1) % 3 == 0:
+			retval += s+',' 
+		else:
+			retval += s
+	return retval.strip(',')
