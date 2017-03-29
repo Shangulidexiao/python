@@ -2,7 +2,7 @@
 # -*-coding:utf-8-*-
 
 class MoneyFmt(object):
-	def __init__(self,value=0.0,ccy='￥',mark=False):#constructor
+	def __init__(self,value=0.0,ccy='$',mark=False):#constructor
 		self.__value = value
 		self.__ccy 	 = ccy
 
