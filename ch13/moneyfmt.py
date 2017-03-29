@@ -46,3 +46,10 @@ class MoneyFmt(object):
 			else:
 				retval += s
 		return retval.strip(',')
+
+if __name__ == '__main__':
+	mymoney = MoneyFmt(45.3234)
+	print mymoney
+	print repr(mymoney)
+	mymoney.update(44.33)
+	print mymoney
