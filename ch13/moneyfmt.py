@@ -7,8 +7,10 @@ class MoneyFmt(object):
 		self.__ccy 	 = ccy
 
 	def update(self,value=None):
-		if value not None:
+		if isinstance(value,(float,int)):
 			self.__value = value
+		else:
+			raise TypeError('please input a float')
 
 	def __repr__(self):
 		return `self.__value`
