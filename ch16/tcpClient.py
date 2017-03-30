@@ -11,6 +11,7 @@ ADDR = (HOST,PORT)
 tcpCliSock = socket(AF_INET,SOCK_STREAM)
 tcpCliSock.connect(ADDR)
 
+try:
 while True:
 	data = raw_input('>')
 	if not data:
@@ -20,5 +21,5 @@ while True:
 	if not data:
 		break
 	print data
-
-tcpCliSock.close()
+except EOFError,KeyboardInterrupt:
+	tcpCliSock.close()

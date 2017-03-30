@@ -15,6 +15,7 @@ tcpSerSock = socket(AF_INET,SOCK_STREAM)
 tcpSerSock.bind(ADDR)
 tcpSerSock.listen(5)#5 表示最多允许5个连接
 
+try:
 while True:
 	print 'waiting for connection'
 	tcpCliSock,addr = tcpSerSock.accept()
@@ -22,8 +23,10 @@ while True:
 
 	while True:
 		data = tcpCliSock.recv(BUFSIZ)
+		print 'this client send is' + data
 		if not data:
 			break
 		tcpCliSock.send('[%s] %s' % (ctime(),data))
-tcpCliSock.close()
-tcpSerSock.close()
+except EOFError,KeyboardInterrupt:
+	tcpCliSock.close()
+	tcpSerSock.close()
