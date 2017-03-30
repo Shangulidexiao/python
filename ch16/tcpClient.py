@@ -3,13 +3,13 @@
 
 from socket import *
 
-HOST = 'localhost'#表示可以绑定在所有的地址上
+HOST = '10.19.37.158'#表示可以绑定在所有的地址上
 PORT = 2000
 BUFSIZ = 1024
 ADDR = (HOST,PORT)
 
-tcpCliSock = socket(AF_NET,SOCK_STREAM)
-tcpCliSock.connent(ADDR)
+tcpCliSock = socket(AF_INET,SOCK_STREAM)
+tcpCliSock.connect(ADDR)
 
 while True:
 	data = raw_input('>')

@@ -5,7 +5,7 @@
 from socket import *
 from time import ctime
 
-HOST = ''
+HOST = ''#表示可以绑定在所有的地址上
 PORT = 2000
 BUFSIZ = 1024
 ADDR = (HOST,PORT)
@@ -13,7 +13,7 @@ ADDR = (HOST,PORT)
 
 tcpSerSock = socket(AF_INET,SOCK_STREAM)
 tcpSerSock.bind(ADDR)
-tcpSerSock.listen(5)
+tcpSerSock.listen(5)#5 表示最多允许5个连接
 
 while True:
 	print 'waiting for connection'
@@ -24,6 +24,6 @@ while True:
 		data = tcpCliSock.recv(BUFSIZ)
 		if not data:
 			break
-		tcpCliSock.send('[%s] %s' % (ctime,data))
+		tcpCliSock.send('[%s] %s' % (ctime(),data))
 tcpCliSock.close()
 tcpSerSock.close()
