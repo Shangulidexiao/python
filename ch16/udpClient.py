@@ -8,18 +8,17 @@ PORT = 2000
 BUFSIZ = 1024
 ADDR = (HOST,PORT)
 
-tcpCliSock = socket(AF_INET,SOCK_STREAM)
-tcpCliSock.connect(ADDR)
-print tcpCliSock.getpeername()
+udpSerSock = socket(AF_INET,SOCK_DGRAM)
+
 try:
 	while True:
 		data = raw_input('>')
 		if not data:
 			break
-		tcpCliSock.send(data)
-		data = tcpCliSock.recv(BUFSIZ)
+		udpSerSock.sendto(data,ADDR)
+		data,ADDR = udpSerSock.recvfrom(BUFSIZ)
 		if not data:
 			break
 		print data
 except EOFError,KeyboardInterrupt:
-	tcpCliSock.close()
+	udpSerSock.close()

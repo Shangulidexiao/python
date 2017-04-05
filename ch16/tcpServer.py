@@ -16,17 +16,17 @@ tcpSerSock.bind(ADDR)
 tcpSerSock.listen(5)#5 表示最多允许5个连接
 
 try:
-while True:
-	print 'waiting for connection'
-	tcpCliSock,addr = tcpSerSock.accept()
-	print '... connected form:',addr
-
 	while True:
-		data = tcpCliSock.recv(BUFSIZ)
-		print 'this client send is' + data
-		if not data:
-			break
-		tcpCliSock.send('[%s] %s' % (ctime(),data))
+		print 'waiting for connection'
+		tcpCliSock,addr = tcpSerSock.accept()
+		print '... connected form:',addr
+
+		while True:
+			data = tcpCliSock.recv(BUFSIZ)
+			print 'this client send is' + data
+			if not data:
+				break
+			tcpCliSock.send('[%s] %s' % (ctime(),data))
 except EOFError,KeyboardInterrupt:
 	tcpCliSock.close()
 	tcpSerSock.close()

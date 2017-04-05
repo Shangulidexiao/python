@@ -4,22 +4,19 @@
 from socket import *
 
 HOST = 'localhost'#表示可以绑定在所有的地址上
-PORT = 2000
+PORT = 8080
 BUFSIZ = 1024
 ADDR = (HOST,PORT)
 
-tcpCliSock = socket(AF_INET,SOCK_STREAM)
-tcpCliSock.connect(ADDR)
-print tcpCliSock.getpeername()
+c = socket(AF_INET,SOCK_STREAM)
+c.connect(ADDR)
+
 try:
 	while True:
 		data = raw_input('>')
 		if not data:
 			break
-		tcpCliSock.send(data)
-		data = tcpCliSock.recv(BUFSIZ)
-		if not data:
-			break
-		print data
+		c.send(data)
+		print c.recv(BUFSIZ)
 except EOFError,KeyboardInterrupt:
-	tcpCliSock.close()
+	c.close()

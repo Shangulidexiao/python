@@ -36,3 +36,23 @@ def addcomma(numStr):
 		else:
 			retval += s
 	return retval.strip(',')
+
+# 13.5
+class Point(object):
+	def __init__(self,x=0,y=0):
+		self.__x = x
+		self.__y = y
+	def __str__(self):
+		return str((self.__x,self.__y))	
+	def __repr__(self):
+		return str((self.__x,self.__y))
+
+#13.6
+class Line(object):
+	def __init__(self,x=0,y=0):
+		self.__x = x
+		self.__y = y
+	def __str__(self):
+		return str((self.__x,self.__y))	
+	def __repr__(self):
+		return str((self.__x,self.__y))
