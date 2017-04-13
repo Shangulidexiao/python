@@ -5,7 +5,7 @@
 
 import sys
 from PyQt4 import QtGui,QtCore
-
+ 
 class Chat(QtGui.QMainWindow):
 	"聊天软件入口类"
 	def __init__(self):
